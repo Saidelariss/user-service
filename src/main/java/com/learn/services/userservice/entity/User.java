@@ -1,5 +1,6 @@
 package com.learn.services.userservice.entity;
 
+import com.learn.services.userservice.dto.RegisterRequest;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -21,4 +22,11 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    public static User fromDomain(String username, String email, Role role){
+        User user = new User();
+        user.setUsername(username);
+        user.setEmail(email);
+        user.setRole(role);
+        return user;
+    }
 }
