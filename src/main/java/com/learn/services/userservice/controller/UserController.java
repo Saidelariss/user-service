@@ -4,6 +4,7 @@ import com.learn.services.userservice.dto.AuthRequest;
 import com.learn.services.userservice.dto.AuthResponse;
 import com.learn.services.userservice.dto.RegisterRequest;
 import com.learn.services.userservice.service.UserService;
+import jakarta.annotation.security.RolesAllowed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,6 +21,7 @@ public class UserController {
     }
 
     @PostMapping("/auth/register")
+    @RolesAllowed("hasR")
     public void register(@RequestBody RegisterRequest request){
         userService.registerUser(request);
     }

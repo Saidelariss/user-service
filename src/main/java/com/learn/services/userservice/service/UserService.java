@@ -31,7 +31,7 @@ public class UserService {
 
     public void registerUser(RegisterRequest request) {
 
-        User user = User.fromDomain(request.getUsername(), request.getEmail(), request.getRole());
+        User user = User.fromDomain(request);
         user.setPassword(passwordEncoder.encode(request.getPassword()));
         userRepository.save(user);
     }

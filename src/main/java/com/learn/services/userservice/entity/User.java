@@ -22,11 +22,11 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    public static User fromDomain(String username, String email, Role role){
+    public static User fromDomain(RegisterRequest request) {
         User user = new User();
-        user.setUsername(username);
-        user.setEmail(email);
-        user.setRole(role);
+        user.setUsername(request.getUsername());
+        user.setEmail(request.getEmail());
+        user.setRole(request.getRole());
         return user;
     }
 }
